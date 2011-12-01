@@ -10,7 +10,7 @@ public class PingMOTDServerListener extends ServerListener{
 	public PingMOTDServerListener(PingMotd instance) {
 		plugin = instance;
 	}
-	public void onServerListPingEvent(ServerListPingEvent event){
+	public void onServerListPing(ServerListPingEvent event){
 		YamlConfiguration Config = (YamlConfiguration) plugin.getConfig();
 		String defMsg = event.getMotd();
 		String newMsg = Config.getString("message", defMsg);
