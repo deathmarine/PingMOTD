@@ -7,8 +7,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import com.nijikokun.bukkit.Permissions.Permissions;
-
 public class ViewMOTD implements CommandExecutor {
 	PingMotd plugin;
 	public ViewMOTD(PingMotd pingMotd) {
@@ -21,11 +19,7 @@ public class ViewMOTD implements CommandExecutor {
 			Player player = null;
 			if (sender instanceof Player){
 				player = (Player)sender;
-				if (Permissions.Security.permission(player, "pingMOTD.view")){
-					auth = true;
-				}else{
-				 if (player.isOp()) auth = true; //defaulting to Op if no permissions or node
-				}
+				if (player.isOp()) auth = true; //defaulting to Op if no permissions or node
 			}else{
 				auth = true; //if sender is not a player - Console
 			}

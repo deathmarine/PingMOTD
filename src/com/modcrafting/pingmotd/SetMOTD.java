@@ -9,8 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import com.nijikokun.bukkit.Permissions.Permissions;
-
 public class SetMOTD implements CommandExecutor {
 	PingMotd plugin;
 	public SetMOTD(PingMotd pingMotd) {
@@ -24,11 +22,7 @@ public class SetMOTD implements CommandExecutor {
 		String admin = "server";
 		if (sender instanceof Player){
 			player = (Player)sender;
-			if (Permissions.Security.permission(player, "pingMOTD.set")){
-				auth = true;
-			}else{
-			 if (player.isOp()) auth = true; //defaulting to Op if no permissions or node
-			}
+			if (player.isOp()) auth = true;
 			admin = player.getName();
 		}else{
 			auth = true; //if sender is not a player - Console
