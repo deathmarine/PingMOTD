@@ -12,7 +12,6 @@ public class PingMOTDServerListener extends ServerListener{
 	public void onServerListPing(ServerListPingEvent event){
 		String Msg = plugin.newMsg();
 		if (Msg == null){
-			Msg = event.getMotd();
 			event.setMotd(event.getMotd());			
 		}else{
 			event.setMotd(plugin.newMsg());
