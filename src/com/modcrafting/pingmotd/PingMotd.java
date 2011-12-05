@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Event;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -16,6 +17,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class PingMotd extends JavaPlugin{
 	public final Logger log = Logger.getLogger("Minecraft");
 	public String maindir = "plugins/PingMOTD/";
+	public String newMsg;
+	public String defMsg;
 	public final PingMOTDServerListener serverlistener = new PingMOTDServerListener(this);
 	@Override
 	public void onDisable() {
@@ -67,6 +70,7 @@ public class PingMotd extends JavaPlugin{
 		pm.registerEvent(Event.Type.SERVER_LIST_PING, serverlistener, Priority.Highest, this);
 		
 		
+		
 	}
 	private void loadCommands() {
 		getCommand("setpingmessage").setExecutor(new SetMOTD(this));
@@ -75,5 +79,13 @@ public class PingMotd extends JavaPlugin{
 		return;
 		
 	}
-
+	public String newMsg(){
+		YamlConfiguration Config = (YamlConfiguration) this.getConfig();
+		String newMsg = Config.getString("message", defMsg);
+		return newMsg;
+	}
+	public String defMsg(String str){
+		defMsg = str;
+		return defMsg;
+	}
 }
