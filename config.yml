@@ -1,2 +1,4 @@
 #message to display to players before logon#
-message: 'Welcome to the server!'
+messagenum: 1
+message:
+  1: 'Welcome to the Server'

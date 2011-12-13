@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -81,11 +82,16 @@ public class PingMotd extends JavaPlugin{
 	}
 	public String newMsg(){
 		YamlConfiguration Config = (YamlConfiguration) this.getConfig();
-		String newMsg = Config.getString("message", defMsg);
+		Random generator = new Random();
+		int randInt = Config.getInt("messagenum", 1);
+		int randomizer = generator.nextInt(randInt) + 1;
+		String intStr = Integer.toString(randomizer);
+		String newMsg = Config.getString("message."+ intStr, defMsg);
 		return newMsg;
 	}
 	public String defMsg(String str){
 		defMsg = str;
 		return defMsg;
 	}
+	
 }
