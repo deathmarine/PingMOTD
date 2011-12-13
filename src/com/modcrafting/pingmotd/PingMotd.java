@@ -74,8 +74,8 @@ public class PingMotd extends JavaPlugin{
 		
 	}
 	private void loadCommands() {
-		getCommand("setpingmessage").setExecutor(new SetMOTD(this));
-		getCommand("viewpingmessage").setExecutor(new ViewMOTD(this));
+		getCommand("pingmotdset").setExecutor(new SetMOTD(this));
+		getCommand("pingmotdview").setExecutor(new ViewMOTD(this));
 		getCommand("pingmotd").setExecutor(new Version(this));
 		return;
 		

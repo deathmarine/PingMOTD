@@ -33,10 +33,21 @@ public class SetMOTD implements CommandExecutor {
 		}
 		if(auth){
 			if(args.length < 1) return false;
-			String setMsg = combineSplit(0, args, " ");
-			config.set("message", (String) setMsg);
+			if (args[0].equalsIgnoreCase("number")){
+				int strInt = Integer.parseInt(args[1]);
+				config.set("messagenum", (int) strInt);
+				sender.sendMessage("Message Number Set:" + args[1]);
+				plugin.log.log(Level.INFO, admin + " set message number:" + args[1] + "!");
+				return true;
+			}
+			if(args.length < 2){
+				sender.sendMessage(ChatColor.RED + "You must specify message number");
+			}
+			String intStr = args[0];
+			String setMsg = combineSplit(1, args, " ");
+			config.set("message." + intStr, (String) setMsg);
 			sender.sendMessage("Message Set: " + setMsg);
-			plugin.log.log(Level.INFO, admin + " set ping message!");
+			plugin.log.log(Level.INFO, admin + " set ping message #" + intStr + "!");
 			plugin.saveConfig();
 			return true;
 		}

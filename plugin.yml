@@ -1,6 +1,6 @@
 name: PingMOTD
 main: com.modcrafting.pingmotd.PingMotd
-version: 0.0.1
+version: 0.0.2
 website: http://modcrafting.com
 author: Deathmarine
 description: >
@@ -9,9 +9,9 @@ commands:
   pingmotd:
     description: Command Access
     usage: /<command> - shows current version.
-  setpingmessage:
+  pingmotdset:
     description: Command Access
     usage: /<command> - set ping message.
-  viewpingmessage:
+  pingmotdview:
     description: Command Access
     usage: /<command> - views the current message.

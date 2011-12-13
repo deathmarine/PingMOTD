@@ -14,7 +14,6 @@ public class ViewMOTD implements CommandExecutor {
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		YamlConfiguration config = (YamlConfiguration) plugin.getConfig();
 			boolean auth = false;
 			Player player = null;
 			if (sender instanceof Player){
@@ -28,11 +27,24 @@ public class ViewMOTD implements CommandExecutor {
 				return true;
 			}
 			if(auth){
-				String getMsg = config.getString("message", null);
-				sender.sendMessage("Message: " + getMsg);
+				String[] array = array();
+				for (int i=1; i<array.length; i++){
+					sender.sendMessage(array[i]);
+				}
 				return true;
 			}
 			return false;
 		}
-
+	public String[] array(){
+		YamlConfiguration config = (YamlConfiguration) plugin.getConfig();
+		int amtMsg = config.getInt("messagenum", 1);
+		String[] strarray = new String[amtMsg + 1];
+		for (int i=1; i < strarray.length; i ++) {
+			String intStr = Integer.toString(i);
+			    strarray[i] = config.getString("message." + intStr);
+		}
+		return strarray;
+		
+	}
+ 
 }
