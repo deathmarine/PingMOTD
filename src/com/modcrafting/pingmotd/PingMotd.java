@@ -21,9 +21,8 @@ public class PingMotd extends JavaPlugin{
 	public String newMsg;
 	public String defMsg;
 	public final PingMOTDServerListener serverlistener = new PingMOTDServerListener(this);
-	@Override
 	public void onDisable() {
-		System.out.println("PingMOTD disabled.");
+		log.log(Level.INFO, "[PingMOTD] disabled.");
 	}
 	protected void createDefaultConfiguration(String name) {
 		File actual = new File(getDataFolder(), name);
@@ -66,12 +65,9 @@ public class PingMotd extends JavaPlugin{
 		new File(maindir).mkdir();
 		createDefaultConfiguration("config.yml");
 		loadCommands();
-		log.log(Level.INFO,"[" + pdfFile.getName() + "]" + " version " + pdfFile.getVersion() + " is enabled!" );
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvent(Event.Type.SERVER_LIST_PING, serverlistener, Priority.Highest, this);
-		
-		
-		
+		log.log(Level.INFO,"[" + pdfFile.getName() + "]" + " version " + pdfFile.getVersion() + " is enabled!" );
 	}
 	private void loadCommands() {
 		getCommand("pingmotdset").setExecutor(new SetMOTD(this));
