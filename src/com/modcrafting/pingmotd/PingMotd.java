@@ -9,8 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.event.Event;
-import org.bukkit.event.Event.Priority;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -66,7 +64,7 @@ public class PingMotd extends JavaPlugin{
 		createDefaultConfiguration("config.yml");
 		loadCommands();
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvent(Event.Type.SERVER_LIST_PING, serverlistener, Priority.Highest, this);
+		pm.registerEvents(serverlistener, this);
 		log.log(Level.INFO,"[" + pdfFile.getName() + "]" + " version " + pdfFile.getVersion() + " is enabled!" );
 	}
 	private void loadCommands() {
