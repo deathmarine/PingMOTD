@@ -15,3 +15,6 @@ commands:
   pingmotdview:
     description: Command Access
     usage: /<command> - views the current message.
+  pingmotdreload:
+    description: Reloads the command
+    usage: /<command> - Reloads the plugin
