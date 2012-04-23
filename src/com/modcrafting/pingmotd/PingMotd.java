@@ -1,5 +1,9 @@
 package com.modcrafting.pingmotd;
-
+/*
+ * 
+ * Never Gonna Stop Meh
+ * 
+ */
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

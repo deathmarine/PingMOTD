@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="D:/Documents/Downloads/Reconstruct/PermissionsEx-1.14-package/Permissions.jar"/>
 	<classpathentry kind="lib" path="D:/Documents/Downloads/Reconstruct/PermissionsEx-1.14-package/PermissionsEx.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/Downloads/craftbukkit-1.2.3-R0.2-20120305.203110-3.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/Downloads/craftbukkit-1.2.5-R1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
