@@ -29,7 +29,7 @@ public class ViewMOTD implements CommandExecutor {
 			if(auth){
 				YamlConfiguration config = (YamlConfiguration) plugin.getConfig();
 				sender.sendMessage(ChatColor.GRAY+"--Current Messages--");
-				for(String msg: config.getStringList("message")){
+				for(String msg: config.getStringList("Messages")){
 					sender.sendMessage(msg);
 				}
 				return true;

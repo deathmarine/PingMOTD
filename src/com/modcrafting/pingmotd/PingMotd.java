@@ -74,7 +74,7 @@ public class PingMotd extends JavaPlugin implements Listener{
 	public String newMsg(){
 		YamlConfiguration config = (YamlConfiguration) this.getConfig();
 		Random generator = new Random();
-		List<String> list = config.getStringList("message");
+		List<String> list = config.getStringList("Messages");
 		int randomizer = generator.nextInt(list.size());
 		String newMsg = list.get(randomizer);
 		return newMsg;
