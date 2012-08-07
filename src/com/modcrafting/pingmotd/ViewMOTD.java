@@ -27,24 +27,14 @@ public class ViewMOTD implements CommandExecutor {
 				return true;
 			}
 			if(auth){
-				String[] array = array();
-				for (int i=1; i<array.length; i++){
-					sender.sendMessage(array[i]);
+				YamlConfiguration config = (YamlConfiguration) plugin.getConfig();
+				sender.sendMessage(ChatColor.GRAY+"--Current Messages--");
+				for(String msg: config.getStringList("message")){
+					sender.sendMessage(msg);
 				}
 				return true;
 			}
 			return false;
 		}
-	public String[] array(){
-		YamlConfiguration config = (YamlConfiguration) plugin.getConfig();
-		int amtMsg = config.getInt("messagenum", 1);
-		String[] strarray = new String[amtMsg + 1];
-		for (int i=1; i < strarray.length; i ++) {
-			String intStr = Integer.toString(i);
-			    strarray[i] = config.getString("message." + intStr);
-		}
-		return strarray;
-		
-	}
  
 }

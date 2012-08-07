@@ -1,7 +1,6 @@
 package com.modcrafting.pingmotd;
 
-import java.util.logging.Level;
-
+import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,11 +18,9 @@ public class SetMOTD implements CommandExecutor {
 		YamlConfiguration config = (YamlConfiguration) plugin.getConfig();
 		boolean auth = false;
 		Player player = null;
-		String admin = "server";
 		if (sender instanceof Player){
 			player = (Player)sender;
 			if (player.isOp()) auth = true;
-			admin = player.getName();
 		}else{
 			auth = true; //if sender is not a player - Console
 		}
@@ -33,35 +30,25 @@ public class SetMOTD implements CommandExecutor {
 		}
 		if(auth){
 			if(args.length < 1) return false;
-			if (args[0].equalsIgnoreCase("number")){
-				int strInt = Integer.parseInt(args[1]);
-				config.set("messagenum", (int) strInt);
-				sender.sendMessage("Message Number Set:" + args[1]);
-				plugin.log.log(Level.INFO, admin + " set message number:" + args[1] + "!");
-				return true;
-			}
-			if(args.length < 2){
-				sender.sendMessage(ChatColor.RED + "You must specify message number");
-			}
-			String intStr = args[0];
-			String setMsg = combineSplit(1, args, " ");
-			config.set("message." + intStr, (String) setMsg);
-			sender.sendMessage("Message Set: " + setMsg);
-			plugin.log.log(Level.INFO, admin + " set ping message #" + intStr + "!");
+			List<String> list = config.getStringList("Messages");
+			list.add(combineSplit(args));
+			config.set("Messages", (List<String>) list);
 			plugin.saveConfig();
+			sender.sendMessage("Saved Message!");
 			return true;
 		}
 		return false;
 	}
-	public String combineSplit(int startIndex, String[] string, String seperator) {
+
+	public String combineSplit(String[] string) {
 		StringBuilder builder = new StringBuilder();
 
-		for (int i = startIndex; i < string.length; i++) {
+		for (int i = 0; i < string.length; i++) {
 			builder.append(string[i]);
-			builder.append(seperator);
+			builder.append(" ");
 		}
 
-		builder.deleteCharAt(builder.length() - seperator.length()); // remove
+		builder.deleteCharAt(builder.length() - " ".length()); // remove
 		return builder.toString();
 	}
 }

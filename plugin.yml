@@ -1,20 +1,20 @@
 name: PingMOTD
 main: com.modcrafting.pingmotd.PingMotd
-version: 0.0.5
+version: 0.0.6
 website: http://modcrafting.com
 author: Deathmarine
 description: >
              Displays a customizable MOTD when a ping request is sent.
 commands:
-  pingmotd:
+  pmotd:
     description: Command Access
     usage: /<command> - shows current version.
-  pingmotdset:
+  pmotdadd:
     description: Command Access
     usage: /<command> - set ping message.
-  pingmotdview:
+  pmotdview:
     description: Command Access
     usage: /<command> - views the current message.
-  pingmotdreload:
+  pmotdreload:
     description: Reloads the command
     usage: /<command> - Reloads the plugin
