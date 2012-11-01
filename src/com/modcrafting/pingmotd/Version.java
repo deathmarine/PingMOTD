@@ -13,7 +13,8 @@ public class Version implements CommandExecutor {
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		PluginDescriptionFile pdfFile = plugin.getDescription();sender.sendMessage(ChatColor.GRAY + pdfFile.getName() + " version " + pdfFile.getVersion() + " by " + pdfFile.getAuthors());
+		PluginDescriptionFile pdfFile = plugin.getDescription();
+		sender.sendMessage(ChatColor.GRAY + pdfFile.getName() + " version " + pdfFile.getVersion() + " by " + pdfFile.getAuthors());
 		return true;
 	}
 

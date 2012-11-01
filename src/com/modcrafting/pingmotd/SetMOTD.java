@@ -22,7 +22,7 @@ public class SetMOTD implements CommandExecutor {
 			player = (Player)sender;
 			if (player.isOp()) auth = true;
 		}else{
-			auth = true; //if sender is not a player - Console
+			auth = true;
 		}
 		if (!auth){
 			sender.sendMessage(ChatColor.RED + "You do not have the required permissions.");

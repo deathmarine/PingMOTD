@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
+
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -84,8 +86,7 @@ public class PingMotd extends JavaPlugin implements Listener{
 	public void onServerListPing(ServerListPingEvent event){
 		String msg = newMsg();
 		if (msg != null){
-			event.setMotd(msg);
+			event.setMotd(ChatColor.translateAlternateColorCodes("&".toCharArray()[0], msg));	
 		}
 	}
-	
 }
