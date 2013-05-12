@@ -1,6 +1,6 @@
 name: PingMOTD
 main: com.modcrafting.pingmotd.PingMotd
-version: 0.7
+version: 0.8
 website: http://modcrafting.com
 author: Deathmarine
 description: >
@@ -8,13 +8,21 @@ description: >
 commands:
   pmotd:
     description: Command Access
-    usage: /<command> - shows current version.
-  pmotdadd:
-    description: Command Access
-    usage: /<command> - set ping message.
-  pmotdview:
-    description: Command Access
-    usage: /<command> - views the current message.
-  pmotdreload:
-    description: Reloads the command
-    usage: /<command> - Reloads the plugin
+    usage: /<command> - handles all commands
+permissions:
+  pingmotd.*:
+    default: op
+    description: Allows full control
+    children:
+      pingmotd.view: true
+      pingmotd.add: true
+      pingmotd.del: true
+      pingmotd.reload: true
+  pingmotd.view:
+    description: View all of the currently stored messages.
+  pingmotd.add:
+    description: Add to the list of messages.
+  pingmotd.del:
+    description: Remove from the list of messages.
+  pingmotd.reload:
+    description: Reload the configuration.

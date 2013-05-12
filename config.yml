@@ -1,3 +1,7 @@
 #message to display to players before logon#
 Messages:
-- 'Welcome to the Server'
+- '&3Welcome to the Server'
+- 'Information can be found here!'
+- '&4This server uses &cPingMOTD!'
+- 'Enter if you dare!'
+- 'I like cheese, :P'
